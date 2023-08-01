@@ -62,32 +62,121 @@
 		}
 	}
 </script>
-<%@ include file="/WEB-INF/views/layout/header.jsp" %>
-<form action="${ pageContext.request.contextPath }/member/join" method="post" name = "join">
+
+<html>
+<head>
+
+<style>
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #3a3a3a;
+}
+
+#main-holder {
+  width: 35%;
+  height: 55%;
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 2px black;
+}
+
+
+
+#join-form {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+ 
+}
+
+.join-form-field::placeholder {
+  color: #3a3a3a;
+}
+
+.ckid {
+  position: relative; /* 상대적인 위치 지정 */
+  top: 50px; /* 위쪽으로 50px 이동 */
+}
+
+
+.join-form-field {
+  border: none;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  outline: none;
+  padding: 0px 0px 5px 5px;
+  
+}
+
+#join-form-submit {
+  width: 50%;
+  position: fixed;
+    bottom: 90px; /* 하단 여백을 20px로 설정합니다. */
+  left: 25%; /* 가로 위치를 화면 중앙에 맞춥니다. */
+  padding: 7px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+  
+}
+
+
+</style>
+
+
+
+
+
+<body>
+<form id="join-form" action="${ pageContext.request.contextPath }/member/join" method="post" name = "join">
+	<main id="main-holder">
+	<h1 id="join-header">Join</h1>
 	<table>
 		<tr>
 			<td>ID</td>
 			<td>
-				<input type="text" id="id2" name = "id2" autocomplete="off">
+				<input type="text" id="id-field" class="join-form-field" name = "id2" autocomplete="off">
 				<input type="button"  value="중복체크" onclick="checkId(this.form)"><br>
 				<span id="check"></span>
 			</td>
 		</tr>
 		<tr>
 			<td>PW</td>
-			<td><input type="password" name = "password"></td>
+			<td><input type="password" id="password-field" class="join-form-field" name = "password"></td>
 		</tr>
 		<tr>
 			<td>rePW</td>
-			<td><input type="password" name = "repw"></td>
+			<td><input type="password" id="password-field" class="join-form-field" name = "repw"></td>
 		</tr>
 		<tr>
 			<td>Name</td>
-			<td><input type="text" name = "name"  autocomplete="off"></td>
+			<td><input type="text" id="name-field" class="join-form-field"name = "name"  autocomplete="off"></td>
 		</tr>
 		<tr>
 			<td>E-Mail</td>
-			<td><input type="text" name = "email"></td>
+			<td><input type="text" id="email-field" class="join-form-field"name = "email"></td>
 		</tr>
 		<tr>
 			<td>TEL</td>
@@ -98,8 +187,8 @@
 					<option value="016">016</option>
 					<option value="019">019</option>
 				</select>
-				-<input type="text" size = "5" maxlength="4" name = "tel2">
-				-<input type="text" size = "5" maxlength="4" name = "tel3">
+				-<input type="text" size = "5" maxlength="4" name = "tel2" class="join-form-field">
+				-<input type="text" size = "5" maxlength="4" name = "tel3" class="join-form-field">
 			</td>
 		</tr>
 		<tr>
@@ -109,8 +198,12 @@
 			</td>
 		</tr>
 	</table>
+	</main>
 </form>
-<%@ include file="/WEB-INF/views/layout/footer.jsp" %>
+</body>
+</head>
+
+
 
 
 
