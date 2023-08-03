@@ -25,7 +25,6 @@ input {
 
 
 
-
 .board_wrap {
     width: 1000px;
     margin: 100px auto;

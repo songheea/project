@@ -25,19 +25,44 @@
 		}
 	}
 	
+	function sendRequest(url, param, callback, method, asyncBool) //내가 함
+	{
+		if(window.ActiveXObject)
+			xhr = new ActiveXObject("Microsoft.XMLHTTP");
+		else
+			xhr = new XMLHttpRequest();
+
+		method = (method.toLowerCase() == "get") ? "GET" : "POST";
+		
+		param = ( param == null || param == '' ) ? null : param;
+
+		if(method == "GET" && param != null) url = url + "?" + param;
+		
+		xhr.open(method, url, asyncBool);
+
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		
+		xhr.onreadystatechange = callback;
+
+		xhr.send(  (method == "POST")? param : null   );
+	}
+	
 	function checkId(f) {
-		if(f.id2.value == ""){
+		if(f.id.value == ""){
 			alert("아이디를 입력하십시오!");
 			return;
 		}
 		
 		var url = "${pageContext.request.contextPath}/member/checkId";
-		var param = "id2=" + encodeURIComponent(f.id2.value);
+		var param = "id=" + encodeURIComponent(f.id.value);
 		console.log(url);
 		console.log(param);
+		console.log(f.id.value);
 		
 		sendRequest(url,param,resultFn,"POST");
 	}
+	
+	
 	
 	function resultFn(){
 		if(xhr.readyState==4 && xhr.status==200) {
@@ -45,14 +70,14 @@
 			var data = xhr.responseText;
 			const join = document.getElementById("join");
 			const check = document.getElementById('check');
-			const id2 = document.getElementById('id2');
+			const id = document.getElementById('id');
 			
 			check.innerText = '';
 			console.log(data);
 			if(data === '사용 가능한 ID입니다'){
 				check.style.cssText="color: blue; font-size: 10px;";
 				join.disabled=false;
-				id2.readOnly = true;
+				id.readOnly = true;
 			}else{
 				check.style.cssText="color: red; font-size: 10px;";	
 				join.disabled=true;
@@ -157,8 +182,8 @@ body {
 		<tr>
 			<td>ID</td>
 			<td>
-				<input type="text" id="id-field" class="join-form-field" name = "id2" autocomplete="off">
-				<input type="button"  value="중복체크" onclick="checkId(this.form)"><br>
+				<input type="text" id="id-field" class="join-form-field" name = "id" autocomplete="off">
+				<input type="button"  value="중복체크" onclick="javascript:checkId(this.form)"><br>
 				<span id="check"></span>
 			</td>
 		</tr>

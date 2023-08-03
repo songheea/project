@@ -171,9 +171,9 @@ public class MemberController {
 	
 	@RequestMapping(value = "/member/checkId" ,produces = "application/text;charset=utf8" )
 	@ResponseBody
-	public String checkId(String id2) {
+	public String checkId(String id) {
 		System.out.println("????");
-		if(memberService.checkId(id2)) {
+		if(memberService.checkId(id)) {
 			return "이미 사용중인 ID입니다.";
 		}else {
 			return "사용 가능한 ID입니다";
