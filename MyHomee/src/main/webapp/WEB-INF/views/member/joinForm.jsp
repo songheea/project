@@ -22,6 +22,8 @@
 			alert("비밀번호가 일치하지 않습니다.");
 		}else{
 			document.join.submit();
+		    const joinButton = document.getElementById("join");
+		    joinButton.disabled = false;
 		}
 	}
 	
@@ -76,6 +78,7 @@
 			console.log(data);
 			if(data === '사용 가능한 ID입니다'){
 				check.style.cssText="color: blue; font-size: 10px;";
+				 const joinButton = document.getElementById("join");
 				join.disabled=false;
 				id.readOnly = true;
 			}else{
@@ -85,6 +88,7 @@
 			
 			check.innerText = data;
 		}
+		check.innerText = data;
 	}
 </script>
 
