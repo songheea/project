@@ -1,302 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <style>
-    .search {
-  position: relative;
-  width: 300px;
-  
-}
-
-input {
-  width: 100%;
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 14px;
-}
-.btn{
-  width: 18%;
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  padding: 5px 12px;
-  font-size: 14px;
-
-}
-
-
-
-.board_wrap {
-    width: 1000px;
-    margin: 100px auto;
-}
-
-.board_title {
-    margin-bottom: 30px;
-}
-
-.board_title strong {
-    font-size: 3rem;
-}
-
-.board_title p {
-    margin-top: 5px;
-    font-size: 1.4rem;
-}
-
-.bt_wrap {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 0;
-}
-
-.bt_wrap a {
-    display: inline-block;
-    min-width: 80px;
-    margin-left: 10px;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 2px;
-    font-size: 1.4rem;
-}
-
-.bt_wrap a:first-child {
-    margin-left: 0;
-}
-
-.bt_wrap a.on {
-    background: #000;
-    color: #fff;
-}
-
-.board_list {
-    width: 100%;
-    border-top: 2px solid #000;
-}
-
-.board_list > div {
-    border-bottom: 1px solid #ddd;
-    font-size: 0;
-}
-
-.board_list > div.top {
-    border-bottom: 1px solid #999;
-}
-
-.board_list > div:last-child {
-    border-bottom: 1px solid #000;
-}
-
-.board_list > div > div {
-    display: inline-block;
-    padding: 15px 0;
-    text-align: center;
-    font-size: 1.4rem;
-}
-
-.board_list > div.top > div {
-    font-weight: 600;
-}
-
-.board_list .num {
-    width: 10%;
-}
-
-.board_list .title {
-    width: 60%;
-    text-align: left;
-}
-
-.board_list .top .title {
-    text-align: center;
-}
-
-.board_list .writer {
-    width: 10%;
-}
-
-.board_list .date {
-    width: 10%;
-}
-
-.board_list .count {
-    width: 10%;
-}
-
-.board_page {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 0;
-}
-
-.board_page a {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border: 1px solid #ddd;
-    border-left: 0;
-    line-height: 100%;
-}
-
-.board_page a.bt {
-    padding-top: 10px;
-    font-size: 1.2rem;
-    letter-spacing: -1px;
-}
-
-.board_page a.num {
-    padding-top: 9px;
-    font-size: 1.4rem;
-}
-
-.board_page a.num.on {
-    border-color: #000;
-    background: #000;
-    color: #fff;
-}
-
-.board_page a:first-child {
-    border-left: 1px solid #ddd;
-}
-
-.board_view {
-    width: 100%;
-    border-top: 2px solid #000;
-}
-
-.board_view .title {
-    padding: 20px 15px;
-    border-bottom: 1px dashed #ddd;
-    font-size: 2rem;
-}
-
-.board_view .info {
-    padding: 15px;
-    border-bottom: 1px solid #999;
-    font-size: 0;
-}
-
-.board_view .info dl {
-    position: relative;
-    display: inline-block;
-    padding: 0 20px;
-}
-
-.board_view .info dl:first-child {
-    padding-left: 0;
-}
-
-.board_view .info dl::before {
-    content: "";
-    position: absolute;
-    top: 1px;
-    left: 0;
-    display: block;
-    width: 1px;
-    height: 13px;
-    background: #ddd;
-}
-
-.board_view .info dl:first-child::before {
-    display: none;
-}
-
-.board_view .info dl dt,
-.board_view .info dl dd {
-    display: inline-block;
-    font-size: 1.4rem;
-}
-
-.board_view .info dl dt {
-
-}
-
-.board_view .info dl dd {
-    margin-left: 10px;
-    color: #777;
-}
-
-.board_view .cont {
-    padding: 15px;
-    border-bottom: 1px solid #000;
-    line-height: 160%;
-    font-size: 1.4rem;
-}
-
-.board_write {
-    border-top: 2px solid #000;
-}
-
-.board_write .title,
-.board_write .info {
-    padding: 15px;
-}
-
-.board_write .info {
-    border-top: 1px dashed #ddd;
-    border-bottom: 1px solid #000;
-    font-size: 0;
-}
-
-.board_write .title dl {
-    font-size: 0;
-}
-
-.board_write .info dl {
-    display: inline-block;
-    width: 50%;
-    vertical-align: middle;
-}
-
-.board_write .title dt,
-.board_write .title dd,
-.board_write .info dt,
-.board_write .info dd {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 1.4rem;
-}
-
-.board_write .title dt,
-.board_write .info dt {
-    width: 100px;
-}
-
-.board_write .title dd {
-    width: calc(100% - 100px);
-}
-
-.board_write .title input[type="text"],
-.board_write .info input[type="text"],
-.board_write .info input[type="password"] {
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.board_write .title input[type="text"] {
-    width: 80%;
-}
-
-.board_write .cont {
-    border-bottom: 1px solid #000;
-}
-
-.board_write .cont textarea {
-    display: block;
-    width: 100%;
-    height: 300px;
-    padding: 15px;
-    box-sizing: border-box;
-    border: 0;
-    resize: vertical;
-
-
-
-
-
-    
-</style>
 <script type="text/javascript">
 
 	function check(f) {
@@ -317,16 +20,213 @@ input {
 	}
 </script>
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
-	<c:set var="cpath" value="${pageContext.request.contextPath }"/>	
-	<div class="board_list_wrap">	
-      <div class="board_list">
+<style>
+  /* 기존 CSS 스타일 */
+  /* ... */
+
+  /* 추가한 CSS 스타일 */
+  .board_list_wrap {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .boardTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1c1c1c;
+  }
+
+  .boardTable th,
+  .boardTable td {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    border-bottom: 1px solid #333;
+  }
+
+  .boardTable th {
+    background-color: #333;
+  }
+
+  .boardTable tr:nth-child(odd) {
+    background-color: #1a1a1a;
+  }
+
+  .boardTable a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .boardTable a:hover {
+    text-decoration: underline;
+  }
+
+  .boardTable .num,
+  .boardTable .count {
+    width: 8%;
+  }
+
+  .boardTable .title {
+    width: 45%;
+    text-align: left;
+  }
+
+  .boardTable .writer,
+  .boardTable .date {
+    width: 12%;
+  }
+
+  .board_page {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  .board_page a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    border-left: 0;
+    line-height: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 8px;
+    color: #333;
+  }
+
+  .board_page a.on {
+    border-color: #000;
+    background: #000;
+    color: #fff;
+  }
+
+  .board_page a:first-child {
+    border-left: 1px solid #ddd;
+  }
+
+  .btnBox {
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  .btnBox button {
+    padding: 10px 15px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .btnBox button:hover {
+    background-color: #000;
+  }
+
+  /* 검색 폼 스타일 */
+  .board_list_wrap form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .board_list_wrap select,
+  .board_list_wrap input[type="text"],
+  .board_list_wrap .btn {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .board_list_wrap select {
+    width: 20%;
+  }
+
+  .board_list_wrap input[type="text"] {
+    width: 60%;
+  }
+
+  .board_list_wrap .btn {
+    width: 15%;
+    background-color: #3a3a3a;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .board_list_wrap .btn:hover {
+    background-color: #000;
+    
+  }
+  
+    /* 버튼 스타일 */
+  .btnBox {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  
+    form {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  select[name="type"] {
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 14px;
+  }
+
+  input[type="text"] {
+    flex: 1;
+    height: 40px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 14px;
+  }
+
+  input.btn {
+    width: 80px;
+    height: 40px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 14px;
+    background-color: #3a3a3a;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* 추가한 CSS 스타일 */
+  .search-form-label {
+    font-size: 14px;
+    color: #3a3a3a;
+    margin-right: 5px;
+  }
+  
+  
+  
+</style>
+	<c:set var="cpath" value="${pageContext.request.contextPath }"/>		
+	<div align="center">
 		<table class="boardTable">
 			<tr>
-				<th><div class="num">번호</div></th>
-				<th><div class="title">글제목</div></th>
-				<th><div class="writer">아이디</div></th>
-				<th><div class="date">작성일</div></th>
-				<th><div class="count">조회수</div></th>
+				<th>번호</th>
+				<th>글제목</th>
+				<th>아이디</th>
+				<th>작성일</th>
+				<th>조회수</th>
 			</tr>
 			<c:choose>
 				<c:when test="${list == null }">
@@ -339,16 +239,16 @@ input {
 				<c:otherwise>
 					<c:forEach var="dto" items="${list }">
 						<tr>
-							<td><div class="num">${dto.seq }</div></td>
+							<td>${dto.seq }</td>
 							<td>
 								<c:forEach var="i" begin="1" end="${dto.depth}" step="1">
 									[댓글]
 								</c:forEach>
-								<div class="title"><a href="${pageContext.request.contextPath }/board/content?seq=${dto.seq }">${dto.title }</a></div>
+								<a href="${pageContext.request.contextPath }/board/content?seq=${dto.seq }">${dto.title }</a>
 							</td>
-							<td><div class="writer">${dto.id }</div></td>
-							<td><div class="date">${dto.logtime }</div></td>
-							<td><div class="count">${dto.hit }</div></td>
+							<td>${dto.id }</td>
+							<td>${dto.logtime }</td>
+							<td>${dto.hit }</td>
 						</tr>
 					</c:forEach>
 				</c:otherwise>
@@ -362,7 +262,6 @@ input {
 					<option value="id" ${param.type == 'id' ? 'selected' : '' }>아이디로 검색</option>
 					<option value="content" ${param.type == 'content' ? 'selected' : '' }>내용으로 검색</option>
 				</select>
-				
 				<input type="text" name="word" placeholder="검색어를 입력하세요" value="${param.word }" autocomplete="off">
 				<input class="btn" type="submit"  value="검색">
 			</span>
@@ -372,7 +271,6 @@ input {
 				<button onclick="document.location.href='${pageContext.request.contextPath }/board/writeform'">글쓰기</button>
 			</div>
 		</c:if>
-		<div class="board_page">
 		<div align="center">
 			<c:if test="${paging.prev }">
 				<a href="${cpath }/board/list?page=${paging.begin - 1}&type=${param.type}&word=${param.word}">[이전]</a>
@@ -390,43 +288,9 @@ input {
 			<c:if test="${paging.next }">
 				<a href="${cpath }/board/list?page=${paging.end + 1}&type=${param.type}&word=${param.word}">[다음]</a>
 			</c:if>
-			</div>
 		</div>
-	</div>
-</div>>
+	</div>	
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
